@@ -27,7 +27,8 @@ button{font:inherit;color:inherit;border:1px solid var(--line);background:#30453
 <script>
 const KEY='taiga_idle_save_v1';
 const fresh=()=>({version:1,day:1,hour:7,last:Date.now(),hp:100,hunger:82,thirst:78,energy:90,warmth:85,morale:75,wood:4,branch:5,stone:1,berry:2,mushroom:0,water:2,fish:0,metal:0,cloth:0,food:1,knife:0,base:0,fire:0,fireMinutes:0,torch:0,known:['camp','river','forest'],jobs:[],crafted:[],log:['Вы очнулись у старого охотничьего навеса. Сначала найдите воду и топливо.'],tab:'camp',story:0});
-let s;try{s=JSON.parse(localStorage.getItem(KEY))||fresh()}catch(e){s=fresh()}\nlet saveWarning=false;
+let s;try{s=JSON.parse(localStorage.getItem(KEY))||fresh()}catch(e){s=fresh()}
+let saveWarning=false;
 s={...fresh(),...s,fireMinutes:Number(s.fireMinutes)||0,torch:Number(s.torch)||0,jobs:Array.isArray(s.jobs)?s.jobs:[],known:Array.isArray(s.known)?s.known:['camp','river','forest'],log:Array.isArray(s.log)?s.log:[]};
 const defs={wood:'Древесина',branch:'Ветки',stone:'Камень',berry:'Ягоды',mushroom:'Грибы',water:'Чистая вода',fish:'Рыба',metal:'Металл',cloth:'Ткань',food:'Приготовленная еда',knife:'Костяной нож',torch:'Факел'};
 
