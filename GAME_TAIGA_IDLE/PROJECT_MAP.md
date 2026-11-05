@@ -74,11 +74,11 @@ Taiga-Survival-Course/
 - `tests/save-service.test.cjs`: исполняемые Node.js unit-тесты миграции и валидации сохранений.
 - `tests/game-runtime.test.cjs`: запускает inline-игровой скрипт в минимальном тестовом окружении и проверяет крафт факела и разведение костра.
 - `.github/workflows/taiga-checks.yml`: запускает проверку наличия файлов, разбирает манифест, извлекает JS и проверяет синтаксис, затем запускает regression checks.
-- `.devcontainer/devcontainer.json`: конфигурация Codespaces; автоматически запускает локальный Python HTTP-сервер с корнем `GAME_TAIGA_IDLE/` и пробрасывает порт 8000.
+- `.devcontainer/devcontainer.json`: конфигурация Codespaces; запускает стартовый скрипт, пробрасывает порт 8000 и открывает его в браузере.\n- `.devcontainer/start-game.sh`: проверяет наличие настоящего игрового `index.html`, поднимает HTTP-сервер с корнем `GAME_TAIGA_IDLE/` и ждёт подтверждения, что на порту отвечает именно TAIGA.
 
 ## 5. Запуск из репозитория
 
-Игра запускается в GitHub Codespaces из текущей рабочей копии репозитория. Конфигурация `.devcontainer/devcontainer.json` поднимает сервер на порту 8000; откройте порт через вкладку Ports. Обычная страница просмотра HTML-файла на GitHub не исполняет игру.
+Кнопка **[▶ ИГРАТЬ В БРАУЗЕРЕ](https://codespaces.new/igor74r/Taiga-Survival-Course?quickstart=1)** создаёт Codespace из `main`. Конфигурация запускает `.devcontainer/start-game.sh`, который проверяет и обслуживает именно `GAME_TAIGA_IDLE/index.html`. Порт 8000 помечен как **TAIGA — ИГРА** и открывается в браузере автоматически. Для уже существующего Codespace, созданного до обновления конфигурации, один раз выполните Rebuild Container. Обычная страница просмотра HTML-файла на GitHub не исполняет игру.
 
 ## 6. Целевая структура после безопасного разбиения монолита
 
