@@ -35,7 +35,8 @@ Taiga-Survival-Course/
 │   └── save-service.test.cjs         # Исполняемые unit-тесты сохранений
 ├── .github/
 │   └── workflows/
-│       └── taiga-checks.yml          # GitHub Actions: целостность, JSON, JS, checks
+│       ├── taiga-checks.yml          # GitHub Actions: целостность, JSON, JS, checks
+│       └── deploy-taiga-pages.yml    # Публикация папки игры на GitHub Pages
 └── SERIAL_TAIGA/                     # ОТДЕЛЬНО: исследование сериала, не файлы игры
 ```
 
@@ -72,6 +73,7 @@ Taiga-Survival-Course/
 - `tests/save-service.test.cjs`: исполняемые Node.js unit-тесты миграции и валидации сохранений.
 - `tests/game-runtime.test.cjs`: запускает inline-игровой скрипт в минимальном тестовом окружении и проверяет крафт факела и разведение костра.
 - `.github/workflows/taiga-checks.yml`: запускает проверку наличия файлов, разбирает манифест, извлекает JS и проверяет синтаксис, затем запускает regression checks.
+- `.github/workflows/deploy-taiga-pages.yml`: публикует содержимое `GAME_TAIGA_IDLE/` на GitHub Pages после изменений в игре или вручную. Для первого запуска в Settings → Pages нужно выбрать Source: GitHub Actions.
 
 ## 5. Целевая структура после безопасного разбиения монолита
 
