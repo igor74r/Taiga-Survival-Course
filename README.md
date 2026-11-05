@@ -1,6 +1,6 @@
 # TAIGA — материалы проекта
 
-# [▶ ИГРАТЬ](GAME_TAIGA_IDLE/index.html)
+[▶ ИГРАТЬ — TAIGA SURVIVAL](index.html)
 
 Репозиторий разделён по направлениям.
 
