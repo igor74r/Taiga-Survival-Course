@@ -1,10 +1,12 @@
 # TAIGA — материалы проекта
 
+# [▶ ИГРАТЬ](GAME_TAIGA_IDLE/index.html)
+
 Репозиторий разделён по направлениям.
 
 ## Игра TAIGA — IDLE SURVIVAL
 
-[▶ ЗАПУСТИТЬ ИГРУ](GAME_TAIGA_IDLE/index.html)
+[▶ ИГРАТЬ В TAIGA](GAME_TAIGA_IDLE/index.html)
 
 Игровой проект и все его файлы находятся в ветке `main`.
 
