@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<meta name="theme-color" content="#17251f"><title>TAIGA — IDLE SURVIVAL</title>
+<meta name="theme-color" content="#17251f"><link rel="manifest" href="./manifest.webmanifest"><title>TAIGA — IDLE SURVIVAL</title>
 <style>
 :root{color-scheme:dark;--bg:#101914;--panel:#1c2b23;--panel2:#26382d;--line:#405548;--text:#e9eadf;--muted:#aab7a8;--green:#91ad7b;--gold:#d2ae70;--red:#d77c68}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#3b5842 0,#17251e 45%,#0d1511 100%);color:var(--text);font:15px system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}
@@ -55,5 +55,5 @@ window.craft=function(i){let r=[['Костяной нож',{branch:2,stone:1},{k
 window.explore=function(i){let p=[['camp','Лесная стоянка'],['river','Лесной ручей'],['forest','Глухой лес'],['hut','Заброшенный кордон'],['road','Старая просека'],['marsh','Тихое болото']][i];if(s.known.includes(p[0])){say('Это место уже отмечено на карте.');return;}s.known.push(p[0]);s.energy=clamp(s.energy-12);advance(60);if(p[0]==='river')gain({water:2});if(p[0]==='forest')gain({branch:2,berry:1});if(p[0]==='hut')gain({wood:2,cloth:1});if(p[0]==='road')gain({metal:1});if(p[0]==='marsh')gain({mushroom:2});say('Вы исследовали: '+p[1]+'. Найденные припасы добавлены в склад.');render()};
 window.manualSave=function(){save();say('Сохранение записано.');render()};window.resetGame=function(){if(confirm('Удалить текущее сохранение и начать заново?')){s=fresh();save();render()}};
 document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>{s.tab=b.dataset.tab;render();save()}));
-tickOffline();render();setInterval(()=>{advance(1);render()},60000);document.addEventListener('visibilitychange',()=>{if(document.hidden)save();else{tickOffline();render()}});
+tickOffline();render();if('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('./sw.js').catch(()=>{});setInterval(()=>{advance(1);render()},60000);document.addEventListener('visibilitychange',()=>{if(document.hidden)save();else{tickOffline();render()}});
 </script></body></html>
