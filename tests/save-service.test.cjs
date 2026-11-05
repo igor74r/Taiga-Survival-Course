@@ -15,7 +15,7 @@ assert.equal(migrated.fire,1);
 assert.deepEqual(migrated.known,['camp','river']);
 assert.equal(migrated.tab,'camp');
 assert.deepEqual(migrated.jobs,[{name:'Рубить сухостой',left:30,reward:{wood:3},paid:false}]);
-const safe=normalize({version:2,last:now+60000,torch:'bad',jobs:[{name:'unknown',left:2,reward:{wood:1}},{name:'Собирать ягоды',left:99999,reward:{berry:2}}],log:[null,'ok']},fresh,now);
+const safe=normalize({version:2,last:now+600000,torch:'bad',jobs:[{name:'unknown',left:2,reward:{wood:1}},{name:'Собирать ягоды',left:99999,reward:{berry:2}}],log:[null,'ok']},fresh,now);
 assert.equal(safe.last,now);
 assert.equal(safe.torch,0);
 assert.equal(safe.jobs.length,1);
