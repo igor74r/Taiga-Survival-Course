@@ -1,0 +1,37 @@
+name: TAIGA prototype checks
+
+on:
+  push:
+    paths:
+      - "GAME_TAIGA_IDLE/**"
+      - ".github/workflows/taiga-checks.yml"
+  pull_request:
+    paths:
+      - "GAME_TAIGA_IDLE/**"
+      - ".github/workflows/taiga-checks.yml"
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Validate game files
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const html = fs.readFileSync('GAME_TAIGA_IDLE/index.html', 'utf8');
+          const scripts = [...html.matchAll(/<script>([\\s\\S]*?)<\\/script>/g)];
+          if (!html.includes('name="viewport"')) throw new Error('Mobile viewport is missing');
+          if (!html.includes('manifest.webmanifest')) throw new Error('PWA manifest is not linked');
+          if (scripts.length !== 1) throw new Error('Expected exactly one inline game script');
+          fs.writeFileSync('/tmp/taiga-game.js', scripts[0][1]);
+          JSON.parse(fs.readFileSync('GAME_TAIGA_IDLE/manifest.webmanifest', 'utf8'));
+          for (const file of ['README.md', 'sw.js', 'icon.svg']) {
+            if (!fs.existsSync('GAME_TAIGA_IDLE/' + file)) throw new Error('Missing ' + file);
+          }
+          NODE
+          node --check /tmp/taiga-game.js
