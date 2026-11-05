@@ -37,5 +37,5 @@ jobs:
           }
           NODE
           node --check /tmp/taiga-game.js
-      - name: Run gameplay smoke tests
+      - name: Run gameplay regression checks
         run: node tests/taiga-smoke.test.cjs
