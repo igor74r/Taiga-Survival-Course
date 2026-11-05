@@ -4,9 +4,11 @@
   "forwardPorts": [8000],
   "portsAttributes": {
     "8000": {
-      "label": "TAIGA game",
-      "onAutoForward": "openBrowser"
+      "label": "TAIGA — ИГРА",
+      "onAutoForward": "openBrowser",
+      "visibility": "private"
     }
   },
-  "postStartCommand": "bash -lc 'if ! curl -fsS http://127.0.0.1:8000/ >/dev/null; then nohup python3 -m http.server 8000 --directory GAME_TAIGA_IDLE >/tmp/taiga-http.log 2>&1 & fi'"
+  "postStartCommand": "bash .devcontainer/start-game.sh",
+  "postAttachCommand": "bash .devcontainer/start-game.sh"
 }
