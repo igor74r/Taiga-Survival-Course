@@ -5,6 +5,7 @@ on:
     paths:
       - "GAME_TAIGA_IDLE/**"
       - "tests/**"
+      - ".devcontainer/**"
       - ".github/workflows/taiga-checks.yml"
   pull_request:
     paths:
@@ -23,6 +24,8 @@ jobs:
           node-version: 20
       - name: Validate game files
         run: |
+          python3 -m json.tool .devcontainer/devcontainer.json >/dev/null
+          bash -n .devcontainer/start-game.sh
           node <<'NODE'
           const fs = require('node:fs');
           const html = fs.readFileSync('GAME_TAIGA_IDLE/index.html', 'utf8');
