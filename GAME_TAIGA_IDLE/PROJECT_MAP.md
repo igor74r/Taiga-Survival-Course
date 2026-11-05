@@ -34,7 +34,8 @@ Taiga-Survival-Course/
 │   ├── taiga-smoke.test.cjs          # Статические contract checks
 │   └── save-service.test.cjs         # Исполняемые unit-тесты сохранений
 ├── .devcontainer/
-│   └── devcontainer.json           # Codespaces: запуск локального сервера на порту 8000
+│   ├── devcontainer.json           # Codespaces: автостарт и открытие игрового порта 8000
+│   └── start-game.sh               # Запускает и проверяет сервер именно GAME_TAIGA_IDLE
 ├── .github/
 │   └── workflows/
 │       └── taiga-checks.yml          # GitHub Actions: целостность, JSON, JS, checks
