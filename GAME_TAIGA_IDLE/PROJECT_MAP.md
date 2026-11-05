@@ -33,10 +33,11 @@ Taiga-Survival-Course/
 ├── tests/
 │   ├── taiga-smoke.test.cjs          # Статические contract checks
 │   └── save-service.test.cjs         # Исполняемые unit-тесты сохранений
+├── .devcontainer/
+│   └── devcontainer.json           # Codespaces: запуск локального сервера на порту 8000
 ├── .github/
 │   └── workflows/
-│       ├── taiga-checks.yml          # GitHub Actions: целостность, JSON, JS, checks
-│       └── deploy-taiga-pages.yml    # Публикация папки игры на GitHub Pages
+│       └── taiga-checks.yml          # GitHub Actions: целостность, JSON, JS, checks
 └── SERIAL_TAIGA/                     # ОТДЕЛЬНО: исследование сериала, не файлы игры
 ```
 
@@ -73,9 +74,13 @@ Taiga-Survival-Course/
 - `tests/save-service.test.cjs`: исполняемые Node.js unit-тесты миграции и валидации сохранений.
 - `tests/game-runtime.test.cjs`: запускает inline-игровой скрипт в минимальном тестовом окружении и проверяет крафт факела и разведение костра.
 - `.github/workflows/taiga-checks.yml`: запускает проверку наличия файлов, разбирает манифест, извлекает JS и проверяет синтаксис, затем запускает regression checks.
-- `.github/workflows/deploy-taiga-pages.yml`: публикует содержимое `GAME_TAIGA_IDLE/` на GitHub Pages после изменений в игре или вручную. Для первого запуска в Settings → Pages нужно выбрать Source: GitHub Actions.
+- `.devcontainer/devcontainer.json`: конфигурация Codespaces; автоматически запускает локальный Python HTTP-сервер с корнем `GAME_TAIGA_IDLE/` и пробрасывает порт 8000.
 
-## 5. Целевая структура после безопасного разбиения монолита
+## 5. Запуск из репозитория
+
+Игра запускается в GitHub Codespaces из текущей рабочей копии репозитория. Конфигурация `.devcontainer/devcontainer.json` поднимает сервер на порту 8000; откройте порт через вкладку Ports. Обычная страница просмотра HTML-файла на GitHub не исполняет игру.
+
+## 6. Целевая структура после безопасного разбиения монолита
 
 Это **план**, а не утверждение, что такие файлы уже существуют. Переносить код следует поэтапно, сохраняя возможность запуска игры и проверяя CI после каждого этапа.
 
