@@ -7,6 +7,8 @@ const sw = fs.readFileSync('GAME_TAIGA_IDLE/sw.js', 'utf8');
 // Static contract checks: these verify source structure, not runtime gameplay.
 assert.ok(html.includes('fireMinutes:0'), 'new saves include a fire fuel timer');
 assert.ok(html.includes('s.fireMinutes=180'), 'lighting a fire grants a finite fuel reserve');
+assert.ok(html.includes("catch(e){saveWarning=true;console.warn('TAIGA: не удалось сохранить игру',e);return false}"), 'storage write failures are handled without throwing');
+assert.ok(html.includes('Не удалось сохранить прогресс.'), 'the UI warns when saving is unavailable');
 assert.ok(html.includes('s.fireMinutes=Math.max(0,(s.fireMinutes||0)-min)'), 'elapsed time consumes fire fuel');
 assert.ok(html.includes('s.energy=clamp(s.energy-j[3])'), 'assigning a job consumes energy');
 assert.ok(html.includes('function canExplore(p)'), 'map progression has a prerequisite check');
