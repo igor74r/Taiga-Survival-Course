@@ -4,10 +4,12 @@ on:
   push:
     paths:
       - "GAME_TAIGA_IDLE/**"
+      - "tests/**"
       - ".github/workflows/taiga-checks.yml"
   pull_request:
     paths:
       - "GAME_TAIGA_IDLE/**"
+      - "tests/**"
       - ".github/workflows/taiga-checks.yml"
   workflow_dispatch:
 
@@ -35,3 +37,5 @@ jobs:
           }
           NODE
           node --check /tmp/taiga-game.js
+      - name: Run gameplay smoke tests
+        run: node tests/taiga-smoke.test.cjs
