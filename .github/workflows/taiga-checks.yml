@@ -24,7 +24,7 @@ jobs:
           node <<'NODE'
           const fs = require('node:fs');
           const html = fs.readFileSync('GAME_TAIGA_IDLE/index.html', 'utf8');
-          const scripts = [...html.matchAll(/<script>([\\s\\S]*?)<\\/script>/g)];
+          const scripts = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)];
           if (!html.includes('name="viewport"')) throw new Error('Mobile viewport is missing');
           if (!html.includes('manifest.webmanifest')) throw new Error('PWA manifest is not linked');
           if (scripts.length !== 1) throw new Error('Expected exactly one inline game script');
