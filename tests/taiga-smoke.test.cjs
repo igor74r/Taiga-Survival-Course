@@ -40,6 +40,7 @@ function boot(seed = {}) {
   };
   context.window = context;
   vm.runInNewContext(match[1], context, { timeout: 2000 });
+  context.manualSave();
   return {
     context,
     tick(minutes = 1) { for (let i = 0; i < minutes; i++) minuteTick(); },
