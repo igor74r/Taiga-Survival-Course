@@ -72,7 +72,7 @@ Taiga-Survival-Course/
 - `tests/save-service.test.cjs`: исполняемые Node.js unit-тесты миграции и валидации сохранений.
 - `tests/game-runtime.test.cjs`: запускает inline-игровой скрипт в минимальном тестовом окружении и проверяет крафт факела и разведение костра.
 - `.github/workflows/taiga-checks.yml`: запускает проверку наличия файлов, разбирает манифест, извлекает JS и проверяет синтаксис, затем запускает regression checks.
-- Браузерная ссылка в корневом `README.md` открывает непосредственно `index.html` через raw.githack CDN; игровые ресурсы загружаются относительно папки `GAME_TAIGA_IDLE/`.
+- Кнопка в корневом `README.md` ведёт на `GAME_TAIGA_IDLE/index.html` внутри репозитория.
 
 ## 5. Кнопка запуска и ограничения
 
