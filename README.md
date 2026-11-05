@@ -4,9 +4,9 @@
 
 ## Игра TAIGA — IDLE SURVIVAL
 
-**[▶ ИГРАТЬ В БРАУЗЕРЕ](https://codespaces.new/igor74r/Taiga-Survival-Course?quickstart=1)**
+<p align="center"><a href="https://raw.githack.com/igor74r/Taiga-Survival-Course/main/GAME_TAIGA_IDLE/index.html"><strong>▶ ИГРАТЬ В БРАУЗЕРЕ</strong></a></p>
 
-Кнопка создаёт игровую среду из ветки `main`. После её открытия сервер игры запускается автоматически; браузерная вкладка игры открывается для порта **8000**. Если среда уже была создана до последнего исправления, выполните **Rebuild Container** один раз.
+Открывается непосредственно игровой экран `GAME_TAIGA_IDLE/index.html` в браузере телефона или компьютера. Никаких сред разработки, терминалов и ручного запуска сервера. Исходники и сама игра остаются в этом репозитории; ссылка читает актуальную ветку `main` через CDN raw.githack.
 
 - [Карта файлов и архитектуры игры](GAME_TAIGA_IDLE/PROJECT_MAP.md)
 - [Основной промт разработки игры](GAME_TAIGA_IDLE/GAME_PROMPT_TAIGA_IDLE_SURVIVAL.md)
