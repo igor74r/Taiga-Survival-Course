@@ -6,6 +6,10 @@ const sw = fs.readFileSync('GAME_TAIGA_IDLE/sw.js', 'utf8');
 
 // Static contract checks: these verify source structure, not runtime gameplay.
 assert.ok(html.includes('fireMinutes:0'), 'new saves include a fire fuel timer');
+assert.ok(html.includes('TaigaSave.normalize(stored,fresh,Date.now())'), 'loaded saves pass through the validator');
+assert.ok(html.includes('src/services/save-service.js'), 'the save service is loaded before game startup');
+assert.ok(html.includes("const recipes=[['Костяной нож"), 'recipe catalog is defined at app scope');
+assert.ok(!html.includes("if(s.tab==='craft'){const recipes="), 'craft screen does not define a shadow recipe catalog');
 assert.ok(html.includes('s.fireMinutes=180'), 'lighting a fire grants a finite fuel reserve');
 assert.ok(html.includes("catch(e){saveWarning=true;console.warn('TAIGA: не удалось сохранить игру',e);return false}"), 'storage write failures are handled without throwing');
 assert.ok(html.includes('Не удалось сохранить прогресс.'), 'the UI warns when saving is unavailable');
