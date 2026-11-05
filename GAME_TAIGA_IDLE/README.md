@@ -9,7 +9,7 @@
 
 ## Запуск игры в браузере
 
-Нажмите **[▶ ИГРАТЬ В БРАУЗЕРЕ](https://raw.githack.com/igor74r/Taiga-Survival-Course/main/GAME_TAIGA_IDLE/index.html)** — откроется непосредственно игровой экран TAIGA из файла `GAME_TAIGA_IDLE/index.html`.
+Нажмите [![▶ ИГРАТЬ В БРАУЗЕРЕ](https://img.shields.io/badge/▶_ИГРАТЬ_В_БРАУЗЕРЕ-2ea44f?style=for-the-badge)](https://raw.githack.com/igor74r/Taiga-Survival-Course/main/GAME_TAIGA_IDLE/index.html) — откроется непосредственно игровой экран TAIGA из файла `GAME_TAIGA_IDLE/index.html`.
 
 - Работает в мобильном и настольном браузере.
 - Не требует среды разработки, терминала, установки Python или ручного запуска сервера.
