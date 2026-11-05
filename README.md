@@ -4,9 +4,9 @@
 
 ## Игра TAIGA — IDLE SURVIVAL
 
-[![▶ ИГРАТЬ В БРАУЗЕРЕ](https://img.shields.io/badge/▶_ИГРАТЬ_В_БРАУЗЕРЕ-2ea44f?style=for-the-badge)](https://raw.githack.com/igor74r/Taiga-Survival-Course/main/GAME_TAIGA_IDLE/index.html)
+[▶ ЗАПУСТИТЬ ИГРУ](GAME_TAIGA_IDLE/index.html)
 
-Открывается непосредственно игровой экран `GAME_TAIGA_IDLE/index.html` в браузере телефона или компьютера. Никаких сред разработки, терминалов и ручного запуска сервера. Исходники и сама игра остаются в этом репозитории; ссылка читает актуальную ветку `main` через CDN raw.githack.
+Кнопка ведёт непосредственно к файлу запуска `GAME_TAIGA_IDLE/index.html` внутри этой ветки репозитория. Игровые файлы остаются в `main`.
 
 - [Карта файлов и архитектуры игры](GAME_TAIGA_IDLE/PROJECT_MAP.md)
 - [Основной промт разработки игры](GAME_TAIGA_IDLE/GAME_PROMPT_TAIGA_IDLE_SURVIVAL.md)
@@ -24,6 +24,10 @@
 - [Хронология 12 серий](SERIAL_TAIGA/CHRONOLOGY_TAIGA_KURS_VYZHIVANIYA.md)
 - [Главное досье](SERIAL_TAIGA/MASTER_DOSSIER_TAIGA_KURS_VYZHIVANIYA.md)
 - [Аудит источников](SERIAL_TAIGA/SOURCE_AUDIT_TAIGA.md)
+
+## Правило запуска и запрет внешних сервисов
+
+Игра и все необходимые для её запуска файлы должны храниться в этом репозитории и версионироваться в `main`. Запрещено подключать для запуска, публикации или доставки игры сторонние хостинги, CDN, прокси, внешние площадки, Codespaces и иные внешние среды. Не добавлять внешние адреса запуска в кнопки и документацию. Кнопка запуска в описании репозитория должна вести на `GAME_TAIGA_IDLE/index.html` внутри репозитория.
 
 ## Принцип организации
 
