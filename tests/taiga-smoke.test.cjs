@@ -2,6 +2,9 @@ const fs = require('node:fs');
 const assert = require('node:assert/strict');
 
 const html = fs.readFileSync('GAME_TAIGA_IDLE/index.html', 'utf8');
+const sw = fs.readFileSync('GAME_TAIGA_IDLE/sw.js', 'utf8');
+
+// Static contract checks: these verify source structure, not runtime gameplay.
 assert.ok(html.includes('fireMinutes:0'), 'new saves include a fire fuel timer');
 assert.ok(html.includes('s.fireMinutes=180'), 'lighting a fire grants a finite fuel reserve');
 assert.ok(html.includes('s.fireMinutes=Math.max(0,(s.fireMinutes||0)-min)'), 'elapsed time consumes fire fuel');
@@ -10,5 +13,20 @@ assert.ok(html.includes('function canExplore(p)'), 'map progression has a prereq
 assert.ok(html.includes("base:()=>s.base>0"), 'the outpost requires an upgraded shelter');
 assert.ok(html.includes("hut:()=>s.known.includes('hut')"), 'the old road requires the outpost');
 assert.ok(html.includes("road:()=>s.known.includes('road')"), 'the marsh requires the old road');
-assert.ok(html.includes("{torch:1}"), 'the torch recipe creates a torch item, not a permanent fire');
-console.log('TAIGA gameplay contract checks passed.');
+
+// Crafting UI and execution must use the same recipe catalog.
+assert.equal((html.match(/const recipes=/g) || []).length, 1, 'there is exactly one recipe catalog');
+assert.ok(html.includes("['Факел',{branch:2,wood:1},{torch:1},'torch']"), 'torch recipe grants a torch item');
+assert.ok(html.includes('let r=recipes[i]'), 'crafting execution reads the shared recipe catalog');
+assert.ok(!html.includes("{fire:1}"), 'crafting must not grant the fire timer as an inventory item');
+
+// Fire action must validate and consume the cost before changing fire state.
+assert.ok(html.includes("if(a==='fire'){if(s.fire>0||!spend({branch:2,wood:1}))return;s.fire=1;"),
+  'fire action aborts when already lit or when resources are insufficient');
+
+// Service worker must not clear unrelated origin caches or return HTML for failed asset requests.
+assert.ok(sw.includes('key.startsWith(CACHE_PREFIX)'), 'cache cleanup is limited to TAIGA caches');
+assert.ok(sw.includes('request.mode === "navigate"'), 'app-shell fallback is navigation-only');
+assert.ok(sw.includes('status: 503'), 'failed non-navigation requests return a service-unavailable response');
+
+console.log('TAIGA static gameplay contract checks passed.');
