@@ -33,9 +33,6 @@ Taiga-Survival-Course/
 ├── tests/
 │   ├── taiga-smoke.test.cjs          # Статические contract checks
 │   └── save-service.test.cjs         # Исполняемые unit-тесты сохранений
-├── .devcontainer/
-│   ├── devcontainer.json           # Codespaces: автостарт и открытие игрового порта 8000
-│   └── start-game.sh               # Запускает и проверяет сервер именно GAME_TAIGA_IDLE
 ├── .github/
 │   └── workflows/
 │       └── taiga-checks.yml          # GitHub Actions: целостность, JSON, JS, checks
@@ -75,11 +72,11 @@ Taiga-Survival-Course/
 - `tests/save-service.test.cjs`: исполняемые Node.js unit-тесты миграции и валидации сохранений.
 - `tests/game-runtime.test.cjs`: запускает inline-игровой скрипт в минимальном тестовом окружении и проверяет крафт факела и разведение костра.
 - `.github/workflows/taiga-checks.yml`: запускает проверку наличия файлов, разбирает манифест, извлекает JS и проверяет синтаксис, затем запускает regression checks.
-- `.devcontainer/devcontainer.json`: конфигурация Codespaces; запускает стартовый скрипт, пробрасывает порт 8000 и открывает его в браузере.\n- `.devcontainer/start-game.sh`: проверяет наличие настоящего игрового `index.html`, поднимает HTTP-сервер с корнем `GAME_TAIGA_IDLE/` и ждёт подтверждения, что на порту отвечает именно TAIGA.
+- Браузерная ссылка в корневом `README.md` открывает непосредственно `index.html` через raw.githack CDN; игровые ресурсы загружаются относительно папки `GAME_TAIGA_IDLE/`.
 
-## 5. Запуск из репозитория
+## 5. Запуск игры в браузере
 
-Кнопка **[▶ ИГРАТЬ В БРАУЗЕРЕ](https://codespaces.new/igor74r/Taiga-Survival-Course?quickstart=1)** создаёт Codespace из `main`. Конфигурация запускает `.devcontainer/start-game.sh`, который проверяет и обслуживает именно `GAME_TAIGA_IDLE/index.html`. Порт 8000 помечен как **TAIGA — ИГРА** и открывается в браузере автоматически. Для уже существующего Codespace, созданного до обновления конфигурации, один раз выполните Rebuild Container. Обычная страница просмотра HTML-файла на GitHub не исполняет игру.
+Прямая ссылка **[▶ ИГРАТЬ В БРАУЗЕРЕ](https://raw.githack.com/igor74r/Taiga-Survival-Course/main/GAME_TAIGA_IDLE/index.html)** открывает сам игровой `index.html` из ветки `main`. Страница загружается как HTML с корректным MIME-типом через CDN; относительные пути к манифесту и сервису сохранений остаются внутри `GAME_TAIGA_IDLE/`. Отдельная среда разработки и локальный сервер для игрока не нужны. Изменения ветки могут появляться с задержкой из-за CDN-кеша.
 
 ## 6. Целевая структура после безопасного разбиения монолита
 
