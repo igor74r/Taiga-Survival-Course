@@ -1,0 +1,13 @@
+{
+  "name": "TAIGA — IDLE SURVIVAL",
+  "short_name": "TAIGA",
+  "description": "История выживания в сибирской тайге",
+  "lang": "ru",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#101914",
+  "theme_color": "#17251f",
+  "icons": [{"src":"./icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}
