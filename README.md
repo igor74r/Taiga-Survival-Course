@@ -16,7 +16,7 @@
 ## Игра TAIGA — IDLE SURVIVAL
 
 Все материалы разработки игры находятся в папке [GAME_TAIGA_IDLE](GAME_TAIGA_IDLE/):
-- [Основной промт разработки игры](GAME_TAIGA_IDLE/GAME_PROMPT_TAIGA_IDLE_SURVIVAL.md)
+- [Карта файлов и архитектуры игры](GAME_TAIGA_IDLE/PROJECT_MAP.md)\n- [Основной промт разработки игры](GAME_TAIGA_IDLE/GAME_PROMPT_TAIGA_IDLE_SURVIVAL.md)\n- [Игровой прототип и инструкции](GAME_TAIGA_IDLE/README.md)\n- [Последний технический аудит](GAME_TAIGA_IDLE/AUDIT_2026-11-06.md)
 
 ## Принцип организации
 
