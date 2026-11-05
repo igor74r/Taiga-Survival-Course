@@ -32,10 +32,12 @@ jobs:
           if (scripts.length !== 1) throw new Error('Expected exactly one inline game script');
           fs.writeFileSync('/tmp/taiga-game.js', scripts[0][1]);
           JSON.parse(fs.readFileSync('GAME_TAIGA_IDLE/manifest.webmanifest', 'utf8'));
-          for (const file of ['README.md', 'sw.js', 'icon.svg']) {
+          for (const file of ['README.md', 'sw.js', 'icon.svg', 'src/services/save-service.js']) {
             if (!fs.existsSync('GAME_TAIGA_IDLE/' + file)) throw new Error('Missing ' + file);
           }
           NODE
           node --check /tmp/taiga-game.js
       - name: Run gameplay regression checks
-        run: node tests/taiga-smoke.test.cjs
+        run: |
+          node tests/taiga-smoke.test.cjs
+          node tests/save-service.test.cjs
