@@ -41,3 +41,4 @@ jobs:
         run: |
           node tests/taiga-smoke.test.cjs
           node tests/save-service.test.cjs
+          node tests/game-runtime.test.cjs
